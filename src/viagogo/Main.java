@@ -4,11 +4,9 @@ package viagogo;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -24,9 +22,7 @@ public class Main {
 		}
 		
 		uPos = getUserPos();
-		
 		closestEvents = sortEvents(events, uPos).stream().limit(5).collect(Collectors.toList());
-		
 		showEvents(closestEvents, uPos);
 	}
 	/**
@@ -73,11 +69,11 @@ public class Main {
 	}
 	
 	/**
-	 * Generate a list of unique random coordinates.
+	 * Generate a list of 20 unique random coordinates.
 	 * @return
 	 */
 	private static List<Point> genLoc() {
-		Set<Point> set = new HashSet<Point>();
+		List<Point> list = new ArrayList<Point>();
 		Random position = new Random();
 		Point test;
 		
@@ -85,10 +81,9 @@ public class Main {
 		    test = new Point();
 		    test.x=position.nextInt(21) - 10;
 		    test.y=position.nextInt(21) - 10;
-		    set.add(test);     
+		    list.add(test);     
 		}
 
-		List<Point> list = new ArrayList<Point>(set);
 		return(list);
 	}
 }

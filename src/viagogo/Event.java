@@ -22,6 +22,7 @@ public class Event {
 			for (int i = 0; i < price.length; i++){
 				price[i] = ThreadLocalRandom.current().nextDouble(10, 100);
 			}
+			//get lowest price
 			Arrays.sort(price);
 	}
 	
@@ -39,6 +40,7 @@ public class Event {
 	 * @return
 	 */
 	public int getDistance(Point uPos){
+		//Point2D uses Manhattan distance to calculate the distance between two points
 		int dist = (int) Point2D.distance(uPos.getX(), uPos.getY(), 
 				location.getX(), location.getY());
 		return dist;
